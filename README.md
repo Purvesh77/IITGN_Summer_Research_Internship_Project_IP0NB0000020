@@ -30,3 +30,26 @@ def simulate_data(duration=10, frequency=100):
         z_data[tap_time:tap_time+5] += np.random.normal(10, 2, 5)
     
     return time_data, x_data, y_data, z_data
+```
+- Duration and Frequency: The data is generated for a specified duration and frequency, simulating a real-time data stream.
+- Random Noise: Normal distribution is used to generate random noise for X, Y, and Z axes.
+- Spikes for Taps: Random spikes are added to simulate taps, which are crucial for training the ML model.
+
+## 2. Data Visualization
+
+Visualizing the data helps in understanding the patterns and identifying spikes that correspond to taps.
+
+### Code Explanation
+```python
+def plot_data(time_data, x_data, y_data, z_data):
+    plt.figure(figsize=(12, 6))
+    plt.plot(time_data, x_data, label='X')
+    plt.plot(time_data, y_data, label='Y')
+    plt.plot(time_data, z_data, label='Z')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Acceleration')
+    plt.title('Accelerometer Data from CSV')
+    plt.legend()
+    plt.show()
+```
+- Plotting: The function uses matplotlib to plot the X, Y, and Z data over time, allowing visual identification of spikes.
